@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRitter.UniRitter2015", "UniRitter.UniRitter2015\UniRitter.UniRitter2015.csproj", "{AF26FCAE-2A6C-4CC0-A211-327515DB6485}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC223770-6B20-4F47-B128-CB27842DA01D} = {EC223770-6B20-4F47-B128-CB27842DA01D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRitter.UniRitter2015.Specs", "UniRitter.UniRitter2015.Specs\UniRitter.UniRitter2015.Specs.csproj", "{EC223770-6B20-4F47-B128-CB27842DA01D}"
 EndProject

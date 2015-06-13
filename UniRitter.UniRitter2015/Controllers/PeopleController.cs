@@ -24,23 +24,25 @@ namespace UniRitter.UniRitter2015.Controllers
         }
 
         // POST: api/Person
-        public IHttpActionResult Post([FromBody]PersonModel value)
+        public IHttpActionResult Post([FromBody]PersonModel person)
         {
-            if (ModelState.IsValid)
-            {
-                value.id = Guid.NewGuid();
-                return Json(value);
-            }
-            else
-            {
+            if (ModelState.IsValid){
+                person.id = Guid.NewGuid();
+                return Json(person);
+            }else{
                 return BadRequest(ModelState);
             }
         }
 
         // PUT: api/Person/5
-        public IHttpActionResult Put(int id, [FromBody]PersonModel value)
+        public IHttpActionResult Put(Guid id, [FromBody]PersonModel person)
         {
-            return Json(value);
+            if (ModelState.IsValid){
+                person.id = id;
+                return Json(person);
+            }else{
+                return BadRequest(ModelState);
+            }
         }
 
         // DELETE: api/Person/5

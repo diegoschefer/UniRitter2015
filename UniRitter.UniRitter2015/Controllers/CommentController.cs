@@ -9,22 +9,22 @@ using UniRitter.UniRitter2015.Services;
 
 namespace UniRitter.UniRitter2015.Controllers
 {
-    public class PostController : ApiController
+    public class CommentController : ApiController
     {
-        private readonly IRepository<PostModel> _repo;
+        private readonly IRepository<CommentModel> _repo;
 
-        public PostController(IRepository<PostModel> repo)
+        public CommentController(IRepository<CommentModel> repo)
         {
             this._repo = repo;
         }
 
-        // GET: api/Post
+        // GET: api/Comment
         public IHttpActionResult Get()
         {
             return Json(_repo.GetAll());
         }
 
-        // GET: api/Post/5
+        // GET: api/Comment/5
         public IHttpActionResult Get(Guid id)
         {
             var data = _repo.GetById(id);
@@ -36,7 +36,7 @@ namespace UniRitter.UniRitter2015.Controllers
             return NotFound();
         }
 
-        // POST: api/Post
+        // POST: api/Comment
         public IHttpActionResult Post([FromBody]PostModel post)
         {
             if (ModelState.IsValid)
@@ -50,14 +50,14 @@ namespace UniRitter.UniRitter2015.Controllers
             }
         }
 
-        // PUT: api/Post/5
+        // PUT: api/Comment/5
         public IHttpActionResult Put(Guid id, [FromBody]PostModel post)
         {
             var data = _repo.Update(id, post);
             return Json(post);
         }
 
-        // DELETE: api/Post/5
+        // DELETE: api/Comment/5
         public IHttpActionResult Delete(Guid id)
         {
             _repo.Delete(id);

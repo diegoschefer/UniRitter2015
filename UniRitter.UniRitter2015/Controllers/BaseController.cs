@@ -20,41 +20,46 @@ namespace UniRitter.UniRitter2015.Controllers
             _repo = repo;
         }
 
-        public virtual IHttpActionResult Get()
+        // GET: api/Person
+        public async Task<IHttpActionResult> Get()
         {
-            return Json(_repo.GetAll());
+            return Json(await _repo.GetAll());
         }
 
-        public virtual IHttpActionResult Get(Guid id)
+        // GET: api/Person/5
+        public async Task<IHttpActionResult> Get(Guid id)
         {
             var data = _repo.GetById(id);
             if (data != null)
             {
-                return Json(data);
+                return Json(await data);
             }
 
             return NotFound();
         }
 
-        public virtual IHttpActionResult Post([FromBody] TModel modelo)
+        // POST: api/Person
+        public async Task<IHttpActionResult> Post([FromBody] TModel modelo)
         {
             if (ModelState.IsValid)
             {
                 var data = _repo.Add(modelo);
-                return Json(data);
+                return Json(await data);
             }
             return BadRequest(ModelState);
         }
 
-        public virtual IHttpActionResult Put(Guid id, [FromBody] TModel modelo)
+        // PUT: api/Person/5
+        public async Task<IHttpActionResult> Put(Guid id, [FromBody] TModel modelo)
         {
             var data = _repo.Update(id, modelo);
-            return Json(modelo);
+            return Json(await data);
         }
-        
-        public virtual IHttpActionResult Delete(Guid id)
+
+        // DELETE: api/Person/5
+        public async Task<IHttpActionResult> Delete(Guid id)
         {
-            _repo.Delete(id);
+            await _repo.Delete(id);
             return StatusCode(HttpStatusCode.NoContent);
         }
     }

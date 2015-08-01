@@ -9,11 +9,12 @@ using UniRitter.UniRitter2015.Services.Implementation;
 namespace UniRitter.UniRitter2015.Controllers
 {
 
-    public class PeopleController : BaseController<PersonModel>
+    public class CommentController : BaseController<CommentModel>
     {
-        private readonly IRepository<PersonModel> _repo;
+        private readonly IRepository<CommentModel> _repo;
 
-        public PeopleController(IRepository<PersonModel> repo) : base(repo)
+        public CommentController(IRepository<CommentModel> repo)
+            : base(repo)
         {
             _repo = repo;
         }
